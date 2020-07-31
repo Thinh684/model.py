@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Example</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="/Style/bootstrap4/css/bootstrap.min.css">
+    <!-- <link href="/ytdp/static83vendor/bootstrap4/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet"> -->
+    <!-- <link href="/Style/GonrinUI/css/gonrin.grid.css" rel="stylesheet"> -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+    <!-- Thư viện jQuery (dammio.com) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+    <!-- JavaScript biên dịch mới nhất -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/Style/font-awesome/css/font-awesome.min.css">
+
+    <link href="/Style/GonginUI/css/gonrin.radio.css" rel="stylesheet">
+    <link href="/Style/GonginUI/css/gonrin.ref.css" rel="stylesheet">
+
+    <script src="/Style/GonrinUI/js/moment.js" type="text/javascript"></script>
+
+    <!-- Date Picker -->
+    <!-- <link rel="stylesheet" href="/Style/GonrinUIBoostrap4/css/gonrin.datetimepicker.css"> -->
+    <script>
+        var static_url = "ytdp/static83";
+        var cuakhau_id = 382;
+    </script>
+    <!-- Google Font -->
+    <!--  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">-->
+    <!-- jQuery 3 -->
+    <script src="/Style/jquery/jquery.min.js"></script>
+
+    <!-- <script src="/Style/bootstrap4/js/popper.min.js" crossorigin="anonymous"></script> -->
+    <script src="/Style/bootstrap4/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <!-- <script src="/Style/bootstrap4/bootstrap-select/js/bootstrap-select.min.js" crossorigin="anonymous"></script> -->
+    <style>
+        .header {
+            padding: 5px 20px 5px 20px;
+            position: fixed;
+            width: 100%;
+            background-color: #eeeeee;
+            z-index: 100000;
+        }
+
+        .footer {
+            /* position: fixed;
+            left: 0;
+            bottom: 0; */
+            width: 100%;
+            background-color: #eeeeee;
+            color: black;
+            text-align: center;
+            font-size: small;
+        }
+
+        .content {
+            overflow-x: scroll;
+        }
+
+        .right-logo {
+            font-weight: bolder;
+            color: red;
+            font-size: 120%;
+        }
+        table, th, td {
+  border: 1px solid black;
+}
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img height="40px" style="float: left;"
+            src="data:image/png;base64,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">
+        <span class="right-logo" style="float: right;">Covid-19</span>
+    </div><br />
+    <div class="content" style="margin-top: 50px;">
+        <div class="container">
+            <h4 class="d-flex justify-content-center">MẪU DANH SÁCH THÔNG TIN NGƯỜI ĐẾN TỪ VÙNG DỊCH</h4>
+            <p style="font-size: 80%; margin-top: 10px;" class="text-center"><b>Đây là tài liệu quan trọng, thông tin
+                    của Anh/Chị sẽ giúp cơ quan y tế
+                    liên lạc khi cần thiết để phòng chống dịch bệnh truyền nhiễm.</b>
+            </p>
+            <div class="row">
+                <div class="col-md-6 col-6 text-left">
+                    <label style="color: red;" id="maToKhai"></label>
+                </div>
+                <div class="col-md-6 col-6 text-right ">
+                    <label style="color: red;" id="ngaykekhai"></label>
+                </div>
+            </div>
+            <div style="margin-bottom:10px;">
+                <div><label>Họ tên (ca tiếp xúc):</label></div>
+                <div>
+                    <input type="text" class='form-control' id="hoten" data-name="hoten" data-type="string">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6" style="margin-bottom:10px;">
+                    <div><label>Năm sinh:</label></div>
+                    <div>
+                        <input type="number" class='form-control' id="namsinh" data-name="namsinh" data-type="number" />
+                    </div>
+                </div>
+                <div class="col-6" style="margin-bottom:10px;">
+                    <div><label>Giới tính:</label></div>
+                    <select class="custom-select gioitinh" data-name="gioitinh" data-type="string">
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                        <option value="Khác">Khác</option>
+                    </select>
+                </div>
+            </div>
+            <div style="margin-bottom:10px;">
+                <div><label>Nghề nghiệp:</label></div>
+                <div>
+                    <input type="text" class='form-control' id="nghenghiep" data-name="nghenghiep" data-type="string">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6" style="margin-bottom:10px;">
+                    <div><label>Lịch trình di chuyển:</label></div>
+                    <div>
+                        <input type="date" class='form-control' placeholder="ví dụ: 20/12/2019" id="lịch_di_chuyen"
+                            data-name="lịch_di_chuyen" data-type="string">
+                    </div>
+                </div>
+
+            </div>
+            <div><label>Địa chỉ lưu trú: <label></div>
+            <div class="row">
+
+                <div class="row text-center" style="margin-left:10px">
+                    <div class="col-md-12 text-left "><label>Tỉnh</label></div>
+                    <select class="custom-select tinh" data-name="tinh" data-type="string">
+                        <option value="Hà Nội">Hà Nội</option>
+                        <option value="Đà Nẵng">Đà Nẵng</option>
+                        <option value="Quảng Nam">Quảng Nam</option>
+                        <option value="Thanh Hoá">Thanh Hoá</option>
+                    </select>
+                    </select>
+                </div>
+                <div class="row text-center" style="margin-left:50px">
+                    <div class="col-md-12 col-12 text-left "><label>Huyện </label></div>
+                    <select class="custom-select huyen" data-name="huyen" data-type="string">
+                        <option value="Hà Đông">Hà Đông</option>
+                        <option value="Hà Tây">Hà Tây</option>
+                        <option value="Cầu Giấy">Cầu giấy</option>
+
+                    </select>
+                </div>
+
+                <div class="row text-center" style="margin-left:50px">
+                    <div class="col-md-12 col-12 text-left "><label>Xã </label></div>
+                    <select class="custom-select huyen" data-name="xa" data-type="string">
+                        <option value="Hà Đông">Quảng Đức</option>
+                        <option value="Hà Tây">Tiên Lãnh</option>
+                        <option value="Cầu Giấy">An Minh</option>
+
+                    </select>
+                </div>
+
+            </div>
+            <div class="row text-center" style="margin-bottom:10px">
+                <div class="col-md-12 col-12 text-left "><label>Tình trạng </label></div>
+                <div class="col-md-12 col-12">
+                    <textarea type="text" class="form-control" id="noio" data-name="noio" data-type="string"></textarea>
+                </div>
+            </div>
+
+            <div class="row text-center" style="margin-bottom:10px">
+                <div class="col-md-12 col-12 text-left "><label>Biện pháp</label></div>
+                <div class="col-md-12 col-12">
+                    <textarea type="text" class="form-control" id="noio" data-name="noio" data-type="string"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5" style="margin-bottom:10px;">
+                    <div><label>Điện thoại:</label></div>
+                    <div>
+                        <input type="text" class='form-control' id="sodienthoai" data-name="sodienthoai"
+                            data-type="string" />
+                    </div>
+                </div>
+                <div class="col-7" style="margin-bottom:10px;">
+                    <div><label>Email:</label></div>
+                    <div>
+                        <input type="text" class='form-control' id="email" data-name="email" data-type="string" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-6" style="margin-bottom:10px;">
+                    <div><label>Ngày lấy mẫu xét nghiệm:</label></div>
+                    <div>
+                        <input type="date" class='form-control' placeholder="ví dụ: 20/12/2019" id="ngay_xet_nghiem"
+                            data-name="ngay_xet_nghiem" data-type="string">
+                    </div>
+                </div>
+
+            </div>
+
+            <table style="width:100%">
+                <tr>
+                    <th><label>Ngày</label></th>
+                    <th>Ghi chú</th>
+                </tr>
+               
+                <tr>
+                    <td>Thứ 1</td>
+                    <td><input type="text" width="1000px"></td>
+                    
+                  </tr>
+                  <tr>
+                 
+                
+            </table>
+            </br>
+            </br>
+            <div class="row">
+                <div class="col-md-12 text-left ">
+                    <p style="font-size: 80%;">
+                        <b>Tôi cam kết những thông tin trên là đúng sự thật, tôi hiểu rằng nếu cung cấp sai thông tin có
+                            thể dẫn đến những hậu quả nghiêm trọng.</b>
+                    </p>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:40px;">
+                <!-- <div class="col-6" style="margin-bottom:10px;" id="inline-badge-capcha">
+        </div> -->
+
+                <div class="col-12 text-center" style="margin-bottom:10px;">
+                    <button class="btn btn-success" id="btn-luu"><i class="fa fa-save"></i> Lưu</button>
+                </div>
+                <div id="alert-box" class="col-12 text-center alert alert-warning hide" style="display: none;"
+                    role="alert">
+                    <span id="alert-message">Xin mời nhập <strong>Họ tên</strong>, <strong>năm sinh</strong> và
+                        <strong>quốc tịch</strong></span>
+
+                </div>
+            </div>
+            <input type="hidden" id="ngon_ngu" value="vi" data-name="ngon_ngu" data-type="string" />
+            <input type="hidden" value="382" data-name="cuakhau_id" data-type="number" />
+        </div>
+    </div>
+    <div class="footer">
+
+        <div class="container">
+            <div class="row">
+                <div class="col col-12 col-md-12 text-center">
+                    &nbsp;
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
